@@ -39,8 +39,8 @@ def display_map(df, county, field_name):
 
     #TYING THE COUNTY NAME IN CSV WITH THE COUNTY NAME OF THE GEOJSON FILE SHAPEFILES
     map = folium.Map(location=[0.0236, 37.9062], zoom_start=5.5, scrollWheelZoom=False, tiles='CartoDB positron')
-    choropleth=folium.Choropleth(
-        geo_data= r'C:\Users\Njuguna\Downloads\Population Density\Kenyaadm.json',
+    choropleth = folium.Choropleth(
+        geo_data='Kenyaadm.json',
         data=df_filtered,
         columns=['County', 'Population Density'],
         key_on='feature.properties.NAME_1',
@@ -82,9 +82,8 @@ def main():
     st.subheader(APP_SUB_TITTLE)
 
     #Load Data
-    df_continental = pd.read_csv(r'C:\Users\Njuguna\Downloads\Population Density\pop20.csv')
-    df = pd.read_csv(r'C:\Users\Njuguna\Downloads\Population Density\pop20.csv')
-
+    df_continental = pd.read_csv('pop20.csv')
+    df = pd.read_csv('pop20.csv')
     county = ''
 
     field_name = 'Total_Population19'
